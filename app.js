@@ -10,7 +10,7 @@ const TbRespostas = require('./database/TbRespostas')
 connection.authenticate().then(() => {
     console.log('A conexção foi estabelecida com o banco de dados');
 }).catch((erro) => {
-    console.log(`Não foi possível conectar com o banco de dados. Erro: ${erro}`);
+    console.log("Não foi possível conectar com o banco de dados. Erro: "+erro);
 })
 
 //Exibindo html
