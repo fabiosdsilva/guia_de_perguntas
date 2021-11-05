@@ -1,0 +1,17 @@
+body{
+    background-color: whitesmoke;
+}
+
+#box-formulario{
+    margin-top: 5vh; 
+}
+
+#autor{
+    border: 1px solid;
+
+    border-radius: 3px;
+  
+    outline-style: hidden;
+
+    outline-color: gray;
+}
