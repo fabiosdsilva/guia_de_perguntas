@@ -51,22 +51,25 @@ app.get('/pergunta/:id', (req, res) => {
     TbPerguntas.findOne({
         where: {id: id}
     }).then(pergunta => {
-        if(pergunta != undefined){
+        if(pergunta == undefined){
+            res.render('404') 
+        }else{
             res.render('pergunta', {
                 pergunta: pergunta
             })
-        }else{
-            res.render('404')
         }
     })
+   
 })
 
 app.post('/responder', (req, res) => {
     var idPergunta = req.body.idPergunta
     var resposta = req.body.texto_resposta
     TbRespostas.create({
-        resposta: resposta
+        respostas: resposta,
+        idPerguntas: idPergunta
     })
+    res.redirect('/')
 })
 
 

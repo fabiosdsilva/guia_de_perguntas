@@ -12,9 +12,11 @@ const TbPerguntas = connection.define('tbperguntas', {
     }
 })
 
-TbPerguntas.hasMany(TbRespostas)
-TbRespostas.belongsTo(TbPerguntas)
+TbPerguntas.hasMany(TbRespostas, {
+    constraint: true,
+    foreingKey: 'idPerguntas'
+})
 
-
+TbPerguntas.sync({force: false})
 
 module.exports = TbPerguntas
