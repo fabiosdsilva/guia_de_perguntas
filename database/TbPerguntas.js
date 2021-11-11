@@ -12,9 +12,8 @@ const TbPerguntas = connection.define('tbperguntas', {
     }
 })
 
-TbPerguntas.hasMany(TbRespostas, {
-    foreingKey: 'idPerguntas'
-})
+TbPerguntas.hasMany(TbRespostas)
+TbRespostas.belongsTo(TbPerguntas)
 
 TbPerguntas.sync({force: false})
 

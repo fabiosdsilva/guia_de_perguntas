@@ -51,15 +51,15 @@ app.get('/pergunta/:id', (req, res) => {
     TbPerguntas.findOne({
         where: {id: id}
     }).then(pergunta => {
-        if(pergunta != undefined){
+        if(pergunta != ""){
             TbRespostas.findAll({
                 where: {
-                    idPerguntas: pergunta.id
+                    tbperguntaId: pergunta.id
                 }
-            }).then(resp => {
+            }).then(resposta => {
                 res.render('pergunta', {
                     pergunta: pergunta,
-                    resposta: resp
+                    resposta: resposta
                 })
             })
            
@@ -72,10 +72,10 @@ app.get('/pergunta/:id', (req, res) => {
 
 app.post('/responder', (req, res) => {
     var idPergunta = req.body.idPergunta
-    var resposta = req.body.texto_resposta
+    var respostas = req.body.texto_resposta
     TbRespostas.create({
-        respostas: resposta,
-        idPerguntas: idPergunta
+        respostas: respostas,
+        tbperguntaId: idPergunta
     })
     res.redirect('/')
 })

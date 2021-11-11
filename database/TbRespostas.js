@@ -6,7 +6,7 @@ const TbRespostas = connection.define('tbrespostas', {
     respostas: {
         type: Sequelize.TEXT
     },
-    idPerguntas: {
+    tbperguntaId: {
         type: Sequelize.INTEGER
     }
     
