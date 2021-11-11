@@ -51,12 +51,20 @@ app.get('/pergunta/:id', (req, res) => {
     TbPerguntas.findOne({
         where: {id: id}
     }).then(pergunta => {
-        if(pergunta == undefined){
-            res.render('404') 
-        }else{
-            res.render('pergunta', {
-                pergunta: pergunta
+        if(pergunta != undefined){
+            TbRespostas.findAll({
+                where: {
+                    idPerguntas: pergunta.id
+                }
+            }).then(resp => {
+                res.render('pergunta', {
+                    pergunta: pergunta,
+                    resposta: resp
+                })
             })
+           
+        }else{
+            res.render('404') 
         }
     })
    

@@ -13,7 +13,6 @@ const TbPerguntas = connection.define('tbperguntas', {
 })
 
 TbPerguntas.hasMany(TbRespostas, {
-    constraint: true,
     foreingKey: 'idPerguntas'
 })
 

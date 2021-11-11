@@ -34,14 +34,14 @@
                 <div class="card-header">
                   Autor: 
                 </div>
-               
+              <% resposta.forEach(resposta => { %>
                 <div class="card-body">
                   <blockquote class="blockquote mb-0">
-                    <p></p>
+                    <p> <%= resposta.respostas %></p>
                     <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
                   </blockquote>
-                
                 </div>
+              <% }) %>
               </div>
          </div>
          </div>
